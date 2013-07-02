@@ -87,16 +87,16 @@
            
     <h2> <a name="Design AA" class="anchor"></a> Design </h2>
     <p> <cite>"Building art is a synthesis of life in materialised form. We should try to bring in under the same hat not a splintered way of thinking, but all in harmony together." </cite><br><br>
-      Alvar Aalto studied with Armas Lindgren, one of the leaders of the Finnish Romanticism. Early in his career Aalto seems to have been, from the ideological point of view, a classicist.<br>
-      Since 1930's, after his rational period, the idea of ​​architecture has been extended to technical and psychological themes. This represented an evolution of Aalto's thinking about architecture e signed himself. The Aalto style is constant reference to the tradition of his own country, Finland. The building and the furnitures were not an lonely structures in space but were parts of space around. All must be "armony".<br><br>
+      Alvar Aalto studied with Armas Lindgren, one of the leaders of the Finnish Romanticism. Early in his career Aalto seems to be, from the ideological point of view, a classicist.<br>
+      From 1930's, after his rational period, the idea of ​​architecture has been extended to technical and psychological themes. This represented an evolution of Aalto's thinking about architecture e signed himself. The Aalto style is a constant reference to the tradition of his own country, Finland. The building and the furnitures were not an lonely structures in space but were parts of space around. All must be "armony".<br><br>
     <cite>"Nothing is as dangerous in architecture as dealing with separated problems. If we split life into separated problems we split the possibilities to make good building art."</cite><br><br>
     <cite>"We should concentrate our work not only to a separated housing problem but housing involved in our daily work and all the other functions of the city."</cite><br><br>
-    His activity was really extensive and range from furnitures design and object in glass to architecture and painting. From small objects, as a spoon, the work of Aalto is characterized by recurrent architectural detail: the sign of "wave" , which is called in Finnish "aalto" as his surname. 
+    His activity was really extensive and range from furnitures design and object in glass to architecture and painting. Also in  small objects, as a spoon, the work of Aalto was characterized by recurrent architectural detail: the sign of "wave" , which is called in Finnish "aalto" as his surname. 
     </p><br><br>
 
     
     <h1><a name="Project AA" class="anchor" ></a> Project </h1>
-    <p> I chosen for my final project three of the furnitures of Alvar Aalto. These represent the evolution of psychological inspiration of the author and define the importance of the "aalto wave", the most famous detail of Alvar Aalto in all over the worlds.</p><br>
+    <p> I chosen for my final project three of the Alvar Aalto furnitures. These represent the start of evolution about psychological inspiration of the author and define the importance of the "aalto wave", the most famous detail of Alvar Aalto in all over the worlds.</p><br>
 
     <h2> <a name="Savoy vase" class="anchor"></a> Savoy vase </h2>
     <p>
@@ -104,7 +104,7 @@
     <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/vase1.jpg" title="Savoy vase">
     <center><small>Savoy Vase - 1936</small></center>
     <br>
-    To model this furniture I first created the skeleton of the superior vase buorderlines with NUBS in Plasm.js module. The support functions <code>genNUBS</code> and <code>generatorKnot</code> in used to generate the NUBS curve simply with the knows of the control points.  <br>  
+    To model this furniture I first created the skeleton of the superior vase buorderlines with NUBS curve in Plasm.js module. The support functions <code>genNUBS</code> and <code>generatorKnot</code> in used to generate the NUBS curve simply with the knows of the control points.  <br>  
     <pre><code>var vasoup1 = genNUBS(points1); // curve=[0] nubs=[1]</code></pre>
     <pre><code>function genNUBS (controlPoints){
     var domain = INTERVALS(1)(32)
@@ -116,14 +116,17 @@
     <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/vase2.jpg" title="skeleton">
     <center><small>Savoy Vase bourderlines in Plasm.js</small></center>
     <br>
-    After the definition of the skeleton bourderlines I created the surfaces between them thanks to <code>bez_sup()</code> function that make a Bezier-mapping on S1 of the two bourderlines curves. Then I <code>EXTRUDE([2.5])</code> the just creates surface to design the transparent body of the vase. At the end I generated the bottom vase just with bez_sup() of the same control points used to generate the bourderlines.<br>
+    After the definition of the skeleton bourderlines I created the surfaces between them thanks to <code>bez_sup()</code> function that make a Bezier-mapping on S1 of the two bourderlines curves. Then I <code>EXTRUDE([2.5])</code> the just created surface to design the transparent body of the vase. At the end I generated the bottom vase with <code>bez_sup()</code> of the same control points used to generate the external bourderline.<br>
     So the complete model is the result of <code>savoy_vase()</code> function and the color of the vase is the two value array passed through the call to the function.
     <center><img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/vase3.jpg" title="vase"></center>
     <center><small>Savoy Vase model in Plasm.js</small></center>
     <br>
     <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/vase4.jpg" title="confronto">
     <center><small>Savoy Vase (real and model in Plam.js) difference</small></center>
-    <br></p>
+    <br>
+    The source code of this model is <a href="https://github.com/cvdlab-cg/418965/blob/master/final-project/savoy_vase.js"> here</a>
+
+    </p>
 
     <h2> <a name="Paimio chair" class="anchor"></a> Paimio chair </h2>
     <p>In 1936 Alvar Aalto continued to design furnitures with his idea of waves. The Paimio chair was designed as a part of the Paimio hospital in Finland.<br><br>
@@ -134,13 +137,13 @@
      <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/chair2.jpg" title="Structure">
     <center><small>Paimio chair structure </small></center>
     <br>
-    The frame was implemented by using two Bezier support function. The first function, <code>bez_curve</code>, create a Bezier curve from control points in passing array. The second one support function, <code>bez_sup</code>, create a surfaces between two or more curves passing in the array; I used these two functions to create a profile of legs. Then I make an <code>EXTRUDE([body_depth])</code> to complete the model. <br><br>
+    The frame was implemented by using two Bezier support function. The first function, <code>bez_curve()</code>, create a Bezier curve from control points in passing array. The second one support function, <code>bez_sup()</code>, create a surfaces between two or more curves passing in the array; I used these two functions to create a profile of legs. Then I make an <code>EXTRUDE([body_depth])</code> to complete the models of them. <br><br>
 
-    <code>var bez_curve = function(controlpoints){
-      return BEZIER(S0)(controlpoints);}</code><br><br>
+    <pre><code>var bez_curve = function(controlpoints){
+      return BEZIER(S0)(controlpoints);}</code></pre><br><br>
 
-    <code>var bez_sup = function(curves){
-      return MAP(BEZIER(S1)(curves))(dom2D);}</code><br><br>
+    <pre><code>var bez_sup = function(curves){
+      return MAP(BEZIER(S1)(curves))(dom2D);}</code></pre><br><br>
     
     The body was implemented with the same tecnique, using Bezier functions.
     <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/chair3.jpg" title="Profile model">
@@ -150,8 +153,8 @@
     <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/chair5.jpg" title="Difference" align=middle>
     <center><small>Paimio chair (real and model in Plam.js) difference </small></center><br>
     
-    So the complete model is the result of <code>paimio_chair()</code> function; the body and the leg color are the two value array passed through the call to the function.
-
+    So the complete model is the result of <code>paimio_chair()</code> function; the body and the leg color are the two values array passed through the call to the function.<br><br>
+    The source code of this model is <a href="https://github.com/cvdlab-cg/418965/blob/master/final-project/paimio_chair.js"> here</a>
     </p>
 
 
