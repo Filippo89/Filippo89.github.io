@@ -126,26 +126,28 @@
     <br></p>
 
     <h2> <a name="Paimio chair" class="anchor"></a> Paimio chair </h2>
-    <p>In 1936 Alvar Aalto continued to design furnitures with his idea of waves. The Paimio chair was designed as a part of the Paimio hospital in Finland.<br>
-    <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/chair1.jpg" title="Paimio Chair">
+    <p>In 1936 Alvar Aalto continued to design furnitures with his idea of waves. The Paimio chair was designed as a part of the Paimio hospital in Finland.<br><br>
+    <center><img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/chair1.jpg" title="Paimio Chair"></center>
     <center><small>Paimio chair profile - 1936</small></center>
     <br>
-    The following scheme of chair constituition was important for modelling. I concentrated first to the legs/structure of the chair, than I projected the body. 
+    The following scheme of chair constituition was important for modelling. I concentrated first to the legs/structure of the chair, than I projected the body. <br><br>
      <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/chair2.jpg" title="Structure">
     <center><small>Paimio chair structure </small></center>
     <br>
-    The frame was implemented by using two Bezier support function. The first function, <code>bez_curve</code>, create a Bezier curve from control points in passing array. The second one support function, <code>bez_sup</code>, create a surfaces between two or more curves passing in the array; I used these two functions to create a profile of legs. Then I make an <code>EXTRUDE([body_depth])</code> to complete the model. 
+    The frame was implemented by using two Bezier support function. The first function, <code>bez_curve</code>, create a Bezier curve from control points in passing array. The second one support function, <code>bez_sup</code>, create a surfaces between two or more curves passing in the array; I used these two functions to create a profile of legs. Then I make an <code>EXTRUDE([body_depth])</code> to complete the model. <br><br>
 
     <code>var bez_curve = function(controlpoints){
-  return BEZIER(S0)(controlpoints);}</code>
+      return BEZIER(S0)(controlpoints);}</code><br><br>
+
     <code>var bez_sup = function(curves){
-  return MAP(BEZIER(S1)(curves))(dom2D);}</code>
+      return MAP(BEZIER(S1)(curves))(dom2D);}</code><br><br>
+    
     The body was implemented with the same tecnique, using Bezier functions.
     <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/chair3.jpg" title="Profile model">
-    <center><small>Paimio chair model in Plasm.js </small></center><br>
-    <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/chair4.jpg" title="Model chair">
-    <center><small>Paimio chair model in Plasm.js </small></center><br>
-    <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/chair5.jpg" title="Difference">
+    <center><small>Paimio chair model in Plasm.js </small></center><br><br>
+    <center><img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/chair4.jpg" title="Model chair"></center>
+    <center><small>Paimio chair model in Plasm.js </small></center><br><br>
+    <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/chair5.jpg" title="Difference" align=middle>
     <center><small>Paimio chair (real and model in Plam.js) difference </small></center><br>
     
     So the complete model is the result of <code>paimio_chair()</code> function; the body and the leg color are the two value array passed through the call to the function.
