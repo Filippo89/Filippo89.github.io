@@ -70,7 +70,7 @@
       </center>
       <center><small>Alvar Aalto glass furniture - 1932</small></center><br>
 
-      From this inspiration about, in 1936 he designed the famouse "savoy vase". <br>
+      From this inspiration about, in 1936 he designed the famouse <a href="#Savoy vase">savoy vase</a>.<br>
       His increased fame led to offers and commissions outside Finland. In 1941 he accepted an invitation as a visiting professor to MIT, in the USA. This was during the Second World War, and he involved his students in designing low-cost, small-scale housing for the reconstruction of war-torn Finland. While teaching at MIT, Aalto also designed the student dormitory, Baker House, completed in 1948. This building was the first building of Aalto's redbrick period.<br><br>
       <center><img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/mit.jpg" title="MIT dormitory"></center>
       <center><small>Alvar Aalto design MIT dormitory - 1948</small></center><br>
@@ -79,7 +79,7 @@
       <br><br>
       <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/helsinki-campus.jpg" title="Helsinki campus">
       <center><small>Alvar Aalto design Helsinki Campus - 1949/1966</small></center><br>
-      Since the fifties begins to get prestigious international awards, among which are the Gold Medal of the Royal Institute of British Architects in 1957 and an honorary degree conferred by Politecnico di Milano. In 1965 Aalto held a major exhibition in the Palazzo Strozzi in Florence, which is celebrated as one of the best European artists of the century.<br>
+      Since the fifties begins to get prestigious international awards, among which are the Gold Medal of the Royal Institute of British Architects in 1957 and an honorary degree conferred by Politecnico di Milano. In 1965 Aalto held a major exhibition in the Palazzo Strozzi in Firenze, which is celebrated as one of the best European artists of the century.<br>
       Following Aalto's death in 1976 his office continued to operate under the direction of his widow, Elissa, completing works already to some extent designed. These works include the Jyväskylä City Theatre and Essen opera house. Since the death of Elissa Aalto the office has continued to operate as the Alvar Aalto Academy, giving advice on the restoration of Aalto buildings and organising the vast archive material.
 
    </p>
@@ -92,7 +92,9 @@
     <cite>"Nothing is as dangerous in architecture as dealing with separated problems. If we split life into separated problems we split the possibilities to make good building art."</cite><br><br>
     <cite>"We should concentrate our work not only to a separated housing problem but housing involved in our daily work and all the other functions of the city."</cite><br><br>
     His activity was really extensive and range from furnitures design and object in glass to architecture and painting. Also in  small objects, as a spoon, the work of Aalto was characterized by recurrent architectural detail: the sign of "wave" , which is called in Finnish "aalto" as his surname. 
-    </p><br><br>
+    </p><br>
+
+    <hr><br>
 
     
     <h1><a name="Project AA" class="anchor" ></a> Project </h1>
@@ -101,7 +103,7 @@
     <h2> <a name="Savoy vase" class="anchor"></a> Savoy vase </h2>
     <p>
     In 1936 Alvar Aalto designed this his first furniture. This represent the starting line up of psychological evolution of Aalto's thinking and the born of his wave.<br><br>
-    <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/vase1.jpg" title="Savoy vase">
+    <center><img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/vase1.jpg" title="Savoy vase" WIDTH=70% HEIGHT=70%></center>
     <center><small>Savoy Vase - 1936</small></center>
     <br>
     To model this furniture I first created the skeleton of the superior vase buorderlines with NUBS curve in Plasm.js module. The support functions <code>genNUBS</code> and <code>generatorKnot</code> in used to generate the NUBS curve simply with the knows of the control points.  <br>  
@@ -147,24 +149,29 @@
     <h2> <a name="Paimio chair" class="anchor"></a> Paimio chair </h2>
     <p>In 1936 Alvar Aalto continued to design furnitures with his idea of waves. The Paimio chair was designed as a part of the Paimio hospital in Finland.<br><br>
     <center><img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/chair1.jpg" title="Paimio Chair"></center>
-    <center><small>Paimio chair profile - 1936</small></center>
+    <center><small> Paimio chair - 1936</small></center>
     <br>
-    The following scheme of chair constituition was important for modelling. I concentrated first to the legs/structure of the chair, than I projected the body. <br><br>
+    The following scheme of chair constituition was important for modelling. I concentrated first to the legs/structure of the chair, than I implemented the body. <br><br>
      <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/chair2.jpg" title="Structure">
     <center><small>Paimio chair structure </small></center>
     <br>
-    The frame was implemented by using two Bezier support function. The first function, <code>bez_curve()</code>, create a Bezier curve from control points in passing array. The second one support function, <code>bez_sup()</code>, create a surfaces between two or more curves passing in the array; I used these two functions to create a profile of legs. Then I make an <code>EXTRUDE([body_depth])</code> to complete the models of them. <br><br>
+    <center><img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/chair6.jpg" title="Compositing parts in model"></center>
+    <center><small>Model compositing parts </small></center><br><br>    
+    <br>
+    The frame was implemented by using two Bezier support function. The first function, <code>bez_curve()</code> create a Bezier curve from control points in passing array; the second one support function, <code>bez_sup()</code>, create a surfaces between two or more curves passing in the array; I used these two functions to create a profile of legs. Then I make an <code>EXTRUDE([body_depth])</code> to complete the models of them. <br><br>
 
     <pre><code>var bez_curve = function(controlpoints){
-      return BEZIER(S0)(controlpoints);}</code></pre><br><br>
+      return BEZIER(S0)(controlpoints);}</code></pre>
 
     <pre><code>var bez_sup = function(curves){
-      return MAP(BEZIER(S1)(curves))(dom2D);}</code></pre><br><br>
+      return MAP(BEZIER(S1)(curves))(dom2D);}</code></pre>
     
-    The body was implemented with the same tecnique, using Bezier functions.
+    The body was implemented with the same tecnique, using Bezier functions.<br><br>
     <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/chair3.jpg" title="Profile model">
     <center><small>Paimio chair model in Plasm.js </small></center><br><br>
     <center><img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/chair4.jpg" title="Model chair"></center>
+    <center><small>Paimio chair model in Plasm.js </small></center><br><br>
+    <center><img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/chair7.jpg" title="Model chair"></center>
     <center><small>Paimio chair model in Plasm.js </small></center><br><br>
     <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/chair5.jpg" title="Difference" align=middle>
     <center><small>Paimio chair (real and model in Plam.js) difference </small></center><br>
@@ -177,15 +184,15 @@
     <h2> <a name="Tea trolley" class="anchor"></a> Tea Trolley </h2>
     <p> Introduced in 1936 at the Paris World's Fair, the charming Tea Trolley features Alvar Aalto's innovative side frames made of molded laminated birch, hand-made wicker basket and a tile top that is available in black or white. Aalto designed this cart for residential use. He placed it in the living room of the Villa Mairea (1937-1939). It is based on an earlier serving cart designed for the Paimio Sanitorium (1933).
     <br>
-    <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/tea1.jpg" title="Tea trolley" align=middle>
+    <center><img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/tea1.jpg" title="Tea trolley"></center>
     <center><small> Tea Trolley - 1936</small></center>
     <br>
-    <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/tea2.jpg" title="Tea trolley" align=middle>
+    <center><img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/tea2.jpg" title="Tea trolley"></center>
     <center><small> Tea Trolley - 1936</small></center>
     <br>
-    The peculiary of this furnitures is the similarity of its structure with the paimio chair frames structure. For this I used the same supports function, <code>bez_curve</code> and <code>bez_sup</code> to model the furniture in Plasm. <br>
+    The peculiary of this furnitures is the similarity of its structure with the paimio chair frames structure. For this reason I used the same supports function, <code>bez_curve</code> and <code>bez_sup</code>, to model the furniture structure in Plasm. <br>
     The implementation of the rest of trolley was possible thanks to other supports function. <br>
-    The <code>steering()</code> function create the steering of the trolley using two bezier-circumferences:
+    The <code>steering()</code> function create the steering of the trolley using two bezier-circumferences:<br><br>
     <pre><code>var steering = function(r,h){
   var d1 = circle(r,0);
   var d2 = circle(r,h);
@@ -200,7 +207,7 @@
   <center><small> Tea Trolley compositions</small></center>
   <br>
 
-  The <code>wheel()</code> function create the trolley's wheels in specific colours (no passing array for coulors):
+  The <a name="wheel" class="anchor"><code>wheel()</code></a> function create the trolley's wheels in specific colours (no passing array for coulors):
   <pre><code>var wheel = function(r,h,d){
 
   var d1 = COLOR([224/255,238/255,238/255])(DISK([r])([36,1]));
@@ -237,14 +244,48 @@
   <center><small> Tea Trolley compositions</small></center>
   <br>
 
+  The complete model is the result of <code>tea_trolley()</code> function; the structure color is the value array passed through the call to the function, while the wheels color is constant.  
+
   <br>
   <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/tea6.jpg" title="Trolley complete" align=middle>
   <center><small> Complete tea trolley model in Plasm.js </small></center>
   <br>
-     
-    </p>
+  The source code of this model is <a href="https://github.com/cvdlab-cg/418965/blob/master/final-project/tea_trolley.js"> here</a>
+  </p>
 
 
+  <h2> <a name="Inspiration" class="anchor"></a> Inspiration </h2>
+  <p> Some artists, architects and designers take as inspiration Alvar Aalto futuristic art. One of the most important example of this inspiration is the <a href='http://gamfratesi.com/'>GamFratesi</a> chariot work. Chariot is a side table composed of three simple elements: wheels, trays and structure.
+
+  <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/simil0.jpg" title="Chariot" align=middle>
+  <center><small> GamFratesi Chariot - 2012 </small></center><br>
+  <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/simil1.jpg" title="Alvar Aalto inspiration" align=middle>
+  <center><small> Alvar Aalto inspiration </small></center><br>
+
+  The wheels, which in common trolleys are usual of small dimension, are redimensioned and are becoming the central element of the project, giving the trolley an iconic and unique expression. A standard profile in silicone is insert in the wheel protecting and optimizing the movement. The curve on the upper part of the metal structure is working as handle, and lifting slightly by the handle the trolley is easy to move around.<br>
+
+  The metal structure is implemented by using Cubic-Hermite mapping on S1. In particoular: <br><br>
+  <pre><code>var herm_sup = function(curves){
+  return MAP(CUBIC_HERMITE(S1)(curves))(dom2D);
+};</code></pre>
+  where <code>curves</code> is an array of both curves implements by <code>bez_curve()</code> and points that made cylindricial depth to surface in between. <br>
+
+  The wheels are implemented by using the same <code>wheels()</code> function seen <a href="#wheel">before</a>. 
+  <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/simil2.jpg" title="Chariot composing" align=middle>
+  <center><small> GamFratesi Chariot model composing </small></center><br>
+
+  The complete model is the result of <code>simil_trolley()</code> function; the metal structure and the wheels color is the value array passed through the call to the function.
+
+  <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/simil3.jpg" title="Chariot model" align=middle>
+  <center><small> GamFratesi Chariot model in Plasm.js </small></center><br>
+  
+  <img src="https://raw.github.com/Filippo89/Filippo89.github.io/master/images/simil4.jpg" title="Difference models" align=middle>
+  <center><small> GamFratesi Chariot and <a href="#Tea trolley">Alvar Aalto Tea Trolley</a> models difference </small></center><br>
+ 
+
+  <br> 
+  The source code of this model is <a href="https://github.com/cvdlab-cg/418965/blob/master/final-project/simil_trolley.js"> here</a>
+  </p>
     
        
       </section>
