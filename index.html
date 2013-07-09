@@ -208,11 +208,11 @@
   <br>
 
   The <a name="wheel" class="anchor"><code>wheel()</code></a> function create the trolley's wheels in specific colours (no passing array for coulors):
-  <pre><code>var wheel = function(r,h,d){
+  <pre><code>var wheel = function(r,h,d,color){
 
-  var d1 = COLOR([224/255,238/255,238/255])(DISK([r])([36,1]));
-  var c1 = COLOR([224/255,238/255,238/255])(CYL_SURFACE([r,d])([36,1]));
-  var c2 = COLOR([0,0,0])(T([2])([d])(CYL_SURFACE([r,h])([36,1])));
+  var d1 = COLOR(color)(DISK([r])([36,1]));
+  var c1 = COLOR(color)(CYL_SURFACE([r,d])([36,1]));
+  var c2 = COLOR([0,0,0])(T([2])([d])(CYL_SURFACE([r,h])([36,1]))); //black, ever
   var c3 = T([2])([h+d])(c1);
   var d2 = T([2])([h+2*d])(d1);
   return STRUCT([c1,c2,c3,d1,d2]);
